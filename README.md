@@ -8,9 +8,9 @@ For use Api Clients add to you server appsettings.json row ->  "ClientAddress": 
 Create you BaseEntity or use DefaultApiClientServiceController.DefaultApiClientServiceController.Entity.BaseEntity
 
 ```C#
-    public abstract class BaseEntity : DefaultApiClientServiceController.Entity.BaseEntity<long>, IBaseEntity
-    {
-    }
+public abstract class BaseEntity : DefaultApiClientServiceController.Entity.BaseEntity<long>, IBaseEntity
+{
+}
 ```
 In this will be create FK ID type of "long" in database for you entity
 
@@ -104,8 +104,8 @@ Or take service what you need and override if you need
     {
         private readonly ILogger<BaseApiController<IHeaderService, HeaderInfo, long>> Logger;
 
-        public HeaderInfoesController(IHeaderService service, ILogger<BaseApiController<IHeaderService, HeaderInfo,long>> logger)
-            : base(service)
+        public HeaderInfoesController(IHeaderService service, ILogger<BaseApiController<IHeaderService,
+        HeaderInfo,long>> logger) : base(service)
         {
             Logger = logger;
         }
