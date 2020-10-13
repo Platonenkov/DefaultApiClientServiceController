@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller</Description>
+    <PackageProjectUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</RepositoryUrl>
+    <PackageTags>Api, Client, Service, Controller, base, default</PackageTags>
+    <PackageReleaseNotes>this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller</PackageReleaseNotes>
+    <Authors>APlatonenkov</Authors>
+    <Company>APlatonenkov</Company>
+    <Copyright>https://github.com/Platonenkov</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.8" />
+  </ItemGroup>
+
+</Project>
