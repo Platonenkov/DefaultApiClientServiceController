@@ -1,7 +1,7 @@
 ### DefaultApiClientServiceController
 this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller 
 
-For use Api Clients add to you server appsettings.json row ->  "ClientAddress": "https://localhost:{your api port}/"
+For use Api Clients add to you server appsettings.json row ->  "ClientAddress": "https://localhost:your_api_port/"
 
 #### 1 Create Base entity whit id type what you need
 
