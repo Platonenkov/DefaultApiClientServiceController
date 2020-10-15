@@ -10,7 +10,7 @@ namespace DefaultApiClientServiceController.Entity
     {
         #region Implementation of IBaseEntity
         /// <summary> Id of base entity on database </summary>
-        public T ID { get; set; }
+        public virtual T ID { get; set; }
 
         #endregion
     }

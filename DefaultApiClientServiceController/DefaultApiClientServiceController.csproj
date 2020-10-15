@@ -8,10 +8,11 @@
     <PackageProjectUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</RepositoryUrl>
     <PackageTags>Api, Client, Service, Controller, base, default</PackageTags>
-    <PackageReleaseNotes>this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller</PackageReleaseNotes>
+    <PackageReleaseNotes>Add virtual ID for base entity</PackageReleaseNotes>
     <Authors>APlatonenkov</Authors>
     <Company>APlatonenkov</Company>
     <Copyright>https://github.com/Platonenkov</Copyright>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
