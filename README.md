@@ -8,7 +8,7 @@ For use Api Clients on Server add to you server appsettings.json row ->  "Client
 For use Api Clients on Client add to your client Program.cs rows:
 
 ```C#
-     var config = new Dictionary<string, string> {{"ClientAddress", "https://localhost:44321/"}};
+     var config = new Dictionary<string, string> {{"ClientAddress", "https://localhost:your_api_port/"}};
      builder.Configuration.Add(new MemoryConfigurationSource { InitialData = config });
 ```
 
