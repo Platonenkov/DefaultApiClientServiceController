@@ -3,7 +3,14 @@
  
 this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller 
 
-For use Api Clients add to you server appsettings.json row ->  "ClientAddress": "https://localhost:your_api_port/"
+For use Api Clients on Server add to you server appsettings.json row ->  "ClientAddress": "https://localhost:your_api_port/"
+
+For use Api Clients on Client add to your client Program.cs rows:
+
+```C#
+     var config = new Dictionary<string, string> {{"ClientAddress", "https://localhost:44321/"}};
+     builder.Configuration.Add(new MemoryConfigurationSource { InitialData = config });
+```
 
 #### 1 Create Base entity whit id type what you need
 
