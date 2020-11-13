@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>this contains default Api realization for Api Controller, including DefaultApiClientService 
+because net5 client does not support library reference Microsoft.AspNetCore.Mvc.Core decided to split implementations in library</Description>
+    <PackageProjectUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</RepositoryUrl>
+    <PackageTags>Api, Client, Service, Controller, base, default</PackageTags>
+    <PackageReleaseNotes>Net5 support fixes</PackageReleaseNotes>
+    <Authors>APlatonenkov</Authors>
+    <Company>APlatonenkov</Company>
+    <Copyright>https://github.com/Platonenkov</Copyright>
+    <Version>5.0.1</Version>
+    <AssemblyVersion>5.0.1.0</AssemblyVersion>
+    <FileVersion>5.0.1.0</FileVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIcon>icon.png</PackageIcon>
+    <ApplicationIcon>D:\_MainData\DefaultApiClientServiceController\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DefaultApiClientService\DefaultApiClientService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
