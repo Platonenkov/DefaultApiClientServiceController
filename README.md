@@ -1,7 +1,14 @@
 ### DefaultApiClientServiceController
-#### Install-Package DefaultApiClientServiceController -Version 1.0.0
+#### Install-Package DefaultApiClientService -Version 1.0.0
+#### Install-Package DefaultApiController -Version 5.0.1  - NOT SUPPORT IN CLIENT
  
 this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller 
+
+### Known issues
+because net5 client does not support library reference Microsoft.AspNetCore.Mvc.Core decided to split implementations in library
+base package: Install-Package DefaultApiClientServiceConrtoller -Version 5.0.0
+
+
 
 For use Api Clients on Server add to you server appsettings.json row:
 ```json
