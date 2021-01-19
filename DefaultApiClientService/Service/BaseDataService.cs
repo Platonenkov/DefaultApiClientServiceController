@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DefaultApiClientService.Client;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 
@@ -18,12 +17,6 @@ namespace DefaultApiClientServiceController.Service
 
         #region Implementation of IBaseDataService<T>
 
-        public async Task<BaseApiResponse<T>> GetAsync(int skip = 0, int top = 0)
-        {
-            var data = GetAll().Skip(skip).Take(top);
-            return new BaseApiResponse<T>() {Count = data.Count(), Values = new List<T>(data)};
-        }
-
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public async Task<int> GetTotalCountAsync() => await db.Set<T>().CountAsync();
@@ -31,13 +24,12 @@ namespace DefaultApiClientServiceController.Service
         /// <returns>int count</returns>
         public virtual int GetTotalCount() => GetTotalCountAsync().Result;
 
-        ///// <summary> Get all entities of T type from database </summary>
-        ///// <returns>IEnumerable Entities</returns>
-        //public virtual async Task<IQueryable<T>> GetAllAsync() => db.Set<T>().AsQueryable();
         /// <summary> Get all entities of T type from database </summary>
         /// <returns>IEnumerable Entities</returns>
-        //public virtual IQueryable<T> GetAll() => GetAllAsync().Result;
-        public virtual IQueryable<T> GetAll() => db.Set<T>().AsQueryable();
+        public virtual async Task<IEnumerable<T>> GetAllAsync() => await db.Set<T>().ToListAsync();
+        /// <summary> Get all entities of T type from database </summary>
+        /// <returns>IEnumerable Entities</returns>
+        public virtual IEnumerable<T> GetAll() => GetAllAsync().Result;
 
         /// <summary> Get entity of T type from database by id</summary>
         /// <returns>IEnumerable Entities</returns>
@@ -148,5 +140,5 @@ namespace DefaultApiClientServiceController.Service
         /// <returns>bool result</returns>
         public virtual bool SaveChanges() => SaveChangesAsync().Result;
     }
-        #endregion
+    #endregion
 }

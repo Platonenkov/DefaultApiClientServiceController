@@ -99,7 +99,7 @@ namespace ApiServer
                     model: GetEdmModel());
 
                 endpoints.EnableDependencyInjection();
-                endpoints.Expand().Select().Count().Filter().OrderBy().SkipToken().MaxTop(1);
+                endpoints.Expand().Select().Count().Filter().OrderBy().SkipToken().MaxTop(null);
                 endpoints.MapControllers();
             });
         }

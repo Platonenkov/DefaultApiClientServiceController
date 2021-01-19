@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DefaultApiClientService.Client;
 
 namespace DefaultApiClientServiceController.Interface
 {
     public interface IBaseDataService<T, in T2>
     {
-        public Task<BaseApiResponse<T>> GetAsync(int skip = 0, int top = 0);
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public Task<int> GetTotalCountAsync();
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public int GetTotalCount();
-        ///// <summary> Get all entities of T type from database </summary>
-        ///// <returns>IEnumerable Entities</returns>
-        //public Task<IQueryable<T>> GetAllAsync();
         /// <summary> Get all entities of T type from database </summary>
         /// <returns>IEnumerable Entities</returns>
-        public IQueryable<T> GetAll();
+        public Task<IEnumerable<T>> GetAllAsync();
+        /// <summary> Get all entities of T type from database </summary>
+        /// <returns>IEnumerable Entities</returns>
+        public IEnumerable<T> GetAll();
         /// <summary> Get entity of T type from database by id</summary>
         /// <returns>IEnumerable Entities</returns>
         public Task<T> GetAsync(T2 id);

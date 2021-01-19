@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DefaultApiClientService.Client;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DefaultApiClientServiceController.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     //[Produces("application/json")]
-    public abstract class BaseApiController<T, T2,T3> : ControllerBase where T : IBaseDataService<T2,T3> where T2 : BaseEntity<T3>
+    public abstract class BaseApiController<T, T2, T3> : ControllerBase where T : IBaseDataService<T2, T3> where T2 : BaseEntity<T3>
     {
         protected readonly T Service;
 
@@ -27,11 +26,15 @@ namespace DefaultApiClientServiceController.Controllers
         {
             return await Service.GetTotalCountAsync();
         }
-
+        // GET: api/[controller]
         [HttpGet]
         [EnableQuery]
-        public virtual IQueryable<T2> GetAll() => Service.GetAll();
+        public virtual async Task<IEnumerable<T2>> GetAll()
+        {
+            var data = await Service.GetAllAsync();
 
+            return data;
+        }
         // GET: api/[controller]/5
         [HttpGet("{id}")]
         [EnableQuery]
@@ -46,7 +49,6 @@ namespace DefaultApiClientServiceController.Controllers
 
             return data;
         }
-
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
         [EnableQuery]
@@ -69,7 +71,7 @@ namespace DefaultApiClientServiceController.Controllers
         // POST: api/[controller]/
         [HttpPost]
         [EnableQuery]
-        public virtual async Task<T2> Post(T2 data)
+        public virtual async Task<ActionResult<T2>> Post(T2 data)
         {
             var entity = await Service.AddNewAsync(data);
 
