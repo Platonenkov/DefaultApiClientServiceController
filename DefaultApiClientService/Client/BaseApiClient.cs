@@ -12,6 +12,11 @@ using Newtonsoft.Json;
 
 namespace DefaultApiClientServiceController.Client
 {
+    /// <summary>
+    /// Base service client
+    /// </summary>
+    /// <typeparam name="T">Entity type</typeparam>
+    /// <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
     public abstract class BaseApiClient<T,T2> : BaseClient, IBaseDataService<T,T2> where T : BaseEntity<T2>, new()
     {
         protected BaseApiClient(IConfiguration configuration, string ServiceAddress) : base(configuration, ServiceAddress)
@@ -40,11 +45,9 @@ namespace DefaultApiClientServiceController.Client
         /// <returns>int count</returns>
         public virtual int GetTotalCount() => GetTotalCountAsync().Result;
 
-        public async Task<IEnumerable<T>> GetAllAsync() => await GetAsync<List<T>>($"{ServiceAddress}");
-
-        ///// <summary> Get all entities of T type from database </summary>
-        ///// <returns>IEnumerable Entities</returns>
-        //public virtual async Task<IEnumerable<T>> GetAllAsync() => await GetAsync<List<T>>($"{ServiceAddress}");
+        /// <summary> Get all entities of T type from database </summary>
+        /// <returns>IEnumerable Entities</returns>
+        public virtual async Task<IEnumerable<T>> GetAllAsync() => await GetAsync<List<T>>($"{ServiceAddress}");
         /// <summary> Get all entities of T type from database </summary>
         /// <returns>IEnumerable Entities</returns>
         public virtual IEnumerable<T> GetAll() => Get<List<T>>($"{ServiceAddress}");

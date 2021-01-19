@@ -9,6 +9,11 @@ using DefaultApiClientServiceController.Interface;
 
 namespace DefaultApiClientServiceController.Service
 {
+    /// <summary>
+    /// Base service realization
+    /// </summary>
+    /// <typeparam name="T">Entity type</typeparam>
+    /// <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
     public abstract class BaseDataService<T, T2> : IBaseDataService<T, T2> where T : BaseEntity<T2>
     {
         protected readonly DbContext db;

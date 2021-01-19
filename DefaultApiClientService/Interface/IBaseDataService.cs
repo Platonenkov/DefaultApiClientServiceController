@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace DefaultApiClientServiceController.Interface
 {
+    /// <summary>
+    /// Base service interface
+    /// </summary>
+    /// <typeparam name="T">Entity type</typeparam>
+    /// <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
     public interface IBaseDataService<T, in T2>
     {
         /// <summary> Get count of entities in database </summary>

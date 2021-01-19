@@ -5,10 +5,17 @@ using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNet.OData.Query;
+using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DefaultApiClientServiceController.Controllers
 {
+    /// <summary>
+    /// Base controller implementation
+    /// </summary>
+    /// <typeparam name="T">Service that will work with DB</typeparam>
+    /// <typeparam name="T2">Entity type</typeparam>
+    /// <typeparam name="T3">Entity Id - type (int, long, Guid)</typeparam>
     [Route("api/[controller]")]
     [ApiController]
     //[Produces("application/json")]
@@ -48,7 +55,7 @@ namespace DefaultApiClientServiceController.Controllers
             //}
 
             return data;
-        }
+        } 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
         [EnableQuery]
