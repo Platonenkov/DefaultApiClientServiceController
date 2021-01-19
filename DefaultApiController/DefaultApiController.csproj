@@ -9,13 +9,13 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
     <PackageProjectUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</RepositoryUrl>
     <PackageTags>Api, Client, Service, Controller, base, default</PackageTags>
-    <PackageReleaseNotes>Net5 support fixes</PackageReleaseNotes>
+    <PackageReleaseNotes>odata support</PackageReleaseNotes>
     <Authors>APlatonenkov</Authors>
     <Company>APlatonenkov</Company>
     <Copyright>https://github.com/Platonenkov</Copyright>
-    <Version>5.0.1</Version>
-    <AssemblyVersion>5.0.1.0</AssemblyVersion>
-    <FileVersion>5.0.1.0</FileVersion>
+    <Version>5.0.2</Version>
+    <AssemblyVersion>5.0.2.0</AssemblyVersion>
+    <FileVersion>5.0.2.0</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIcon>icon.png</PackageIcon>
     <ApplicationIcon>D:\_MainData\DefaultApiClientServiceController\icon.ico</ApplicationIcon>
@@ -23,7 +23,9 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.5.4" />
   </ItemGroup>
 
   <ItemGroup>
