@@ -5,7 +5,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using DefaultApiClientService.Client;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace DefaultApiClientServiceController.Client
 {
@@ -25,6 +27,20 @@ namespace DefaultApiClientServiceController.Client
             _Client.DefaultRequestHeaders.Accept.Clear();
             _Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
+
+        #region Odata
+
+        protected BaseApiResponse<T> GetOdata<T>(string url, int skip = 0, int top = 0) where T : new() => GetOdataAsync<T>(url, skip, top).Result;
+
+        protected async Task<BaseApiResponse<T>> GetOdataAsync<T>(string url, int skip = 0, int top = 0) where T : new()
+        {
+            var response = await _Client.GetAsync($"{url}?$count=true&$skip={skip}&$top={top}");
+            if (!response.IsSuccessStatusCode) return new BaseApiResponse<T>(){Values = new List<T>()};
+            var result = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<BaseApiResponse<T>>(result);
+        }
+
+        #endregion
 
         protected T Get<T>(string url) where T : new() => GetAsync<T>(url).Result;
 

@@ -140,5 +140,5 @@ namespace DefaultApiClientServiceController.Service
         /// <returns>bool result</returns>
         public virtual bool SaveChanges() => SaveChangesAsync().Result;
     }
-        #endregion
+    #endregion
 }

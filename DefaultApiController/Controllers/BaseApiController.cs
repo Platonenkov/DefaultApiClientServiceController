@@ -4,14 +4,15 @@ using System.Threading.Tasks;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DefaultApiClientServiceController.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     //[Produces("application/json")]
-    public abstract class BaseApiController<T, T2,T3> : ODataController where T : IBaseDataService<T2,T3> where T2 : BaseEntity<T3>
+    public abstract class BaseApiController<T, T2, T3> : ControllerBase where T : IBaseDataService<T2, T3> where T2 : BaseEntity<T3>
     {
         protected readonly T Service;
 
@@ -25,30 +26,29 @@ namespace DefaultApiClientServiceController.Controllers
         {
             return await Service.GetTotalCountAsync();
         }
-        // GET: api/[controller]/All
+        // GET: api/[controller]
         [HttpGet]
         [EnableQuery]
-        public virtual async Task<ActionResult<List<T2>>> GetAll()
+        public virtual async Task<IEnumerable<T2>> GetAll()
         {
-            var result = await Service.GetAllAsync();
-            return result.ToList();
-        }
-
-        // GET: api/[controller]/5
-        [HttpGet("{id}")]
-        [EnableQuery]
-        public virtual async Task<ActionResult<T2>> Get(T3 id)
-        {
-            var data = await Service.GetAsync(id);
-
-            if (data == null)
-            {
-                return NotFound();
-            }
+            var data = await Service.GetAllAsync();
 
             return data;
         }
+        // GET: api/[controller]/5
+        [HttpGet("{id}")]
+        [EnableQuery]
+        public virtual async Task<T2> Get(T3 id)
+        {
+            var data = await Service.GetAsync(id);
 
+            //if (data == null)
+            //{
+            //    return NotFound();
+            //}
+
+            return data;
+        }
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
         [EnableQuery]
