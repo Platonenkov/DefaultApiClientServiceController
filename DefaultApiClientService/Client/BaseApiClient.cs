@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using DefaultApiClientService.Client;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace DefaultApiClientServiceController.Client
 {
@@ -15,7 +17,22 @@ namespace DefaultApiClientServiceController.Client
         protected BaseApiClient(IConfiguration configuration, string ServiceAddress) : base(configuration, ServiceAddress)
         {
         }
+
+        public async Task<BaseApiResponse<T>> GetAsync(int skip = 0, int top = 0)
+        {
+            var response = _Client.GetAsync($"{ServiceAddress}?$count=true&$skip={skip}&$top={top}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<BaseApiResponse<T>>(json);
+            }
+
+            return new BaseApiResponse<T>();
+        }
+
         #region Implementation of IBaseDataService
+
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public virtual async Task<int> GetTotalCountAsync() => await GetAsync<int>($"{ServiceAddress}/Count");

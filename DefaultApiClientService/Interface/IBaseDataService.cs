@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DefaultApiClientService.Client;
 
 namespace DefaultApiClientServiceController.Interface
 {
     public interface IBaseDataService<T, in T2>
     {
+        public Task<BaseApiResponse<T>> GetAsync(int skip = 0, int top = 0);
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public Task<int> GetTotalCountAsync();

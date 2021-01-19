@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DefaultApiClientService.Client;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 
@@ -16,6 +17,12 @@ namespace DefaultApiClientServiceController.Service
         protected BaseDataService(DbContext db) { this.db = db; }
 
         #region Implementation of IBaseDataService<T>
+
+        public async Task<BaseApiResponse<T>> GetAsync(int skip = 0, int top = 0)
+        {
+            var data = GetAll().Skip(skip).Take(top);
+            return new BaseApiResponse<T>() {Count = data.Count(), Values = new List<T>(data)};
+        }
 
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>

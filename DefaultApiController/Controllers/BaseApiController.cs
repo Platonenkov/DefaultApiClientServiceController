@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DefaultApiClientService.Client;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
 using Microsoft.AspNet.OData;
@@ -25,7 +27,7 @@ namespace DefaultApiClientServiceController.Controllers
         {
             return await Service.GetTotalCountAsync();
         }
-        // GET: api/[controller]/All
+
         [HttpGet]
         [EnableQuery]
         public virtual IQueryable<T2> GetAll() => Service.GetAll();

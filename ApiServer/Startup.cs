@@ -107,7 +107,7 @@ namespace ApiServer
         private IEdmModel GetEdmModel()
         {
             var builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Student>("Students");
+            builder.EntitySet<Student>("Stud");
             return builder.GetEdmModel();
         }
     }
