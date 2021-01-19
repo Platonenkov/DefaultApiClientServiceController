@@ -15,7 +15,7 @@ namespace DefaultApiClientServiceController.Client
         protected BaseApiClient(IConfiguration configuration, string ServiceAddress) : base(configuration, ServiceAddress)
         {
         }
-        #region Implementation of IFaultService
+        #region Implementation of IBaseDataService
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public virtual async Task<int> GetTotalCountAsync() => await GetAsync<int>($"{ServiceAddress}/Count");
@@ -23,12 +23,12 @@ namespace DefaultApiClientServiceController.Client
         /// <returns>int count</returns>
         public virtual int GetTotalCount() => GetTotalCountAsync().Result;
 
+        ///// <summary> Get all entities of T type from database </summary>
+        ///// <returns>IEnumerable Entities</returns>
+        //public virtual async Task<IEnumerable<T>> GetAllAsync() => await GetAsync<List<T>>($"{ServiceAddress}");
         /// <summary> Get all entities of T type from database </summary>
         /// <returns>IEnumerable Entities</returns>
-        public virtual async Task<IEnumerable<T>> GetAllAsync() => await GetAsync<List<T>>($"{ServiceAddress}");
-        /// <summary> Get all entities of T type from database </summary>
-        /// <returns>IEnumerable Entities</returns>
-        public virtual IEnumerable<T> GetAll() => GetAllAsync().Result;
+        public virtual IQueryable<T> GetAll() => Get<List<T>>($"{ServiceAddress}").AsQueryable();
 
         /// <summary> Get entity of T type from database by id</summary>
         /// <returns>IEnumerable Entities</returns>

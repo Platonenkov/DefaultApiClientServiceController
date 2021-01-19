@@ -24,12 +24,13 @@ namespace DefaultApiClientServiceController.Service
         /// <returns>int count</returns>
         public virtual int GetTotalCount() => GetTotalCountAsync().Result;
 
+        ///// <summary> Get all entities of T type from database </summary>
+        ///// <returns>IEnumerable Entities</returns>
+        //public virtual async Task<IQueryable<T>> GetAllAsync() => db.Set<T>().AsQueryable();
         /// <summary> Get all entities of T type from database </summary>
         /// <returns>IEnumerable Entities</returns>
-        public virtual async Task<IEnumerable<T>> GetAllAsync() => await db.Set<T>().ToListAsync();
-        /// <summary> Get all entities of T type from database </summary>
-        /// <returns>IEnumerable Entities</returns>
-        public virtual IEnumerable<T> GetAll() => GetAllAsync().Result;
+        //public virtual IQueryable<T> GetAll() => GetAllAsync().Result;
+        public virtual IQueryable<T> GetAll() => db.Set<T>().AsQueryable();
 
         /// <summary> Get entity of T type from database by id</summary>
         /// <returns>IEnumerable Entities</returns>

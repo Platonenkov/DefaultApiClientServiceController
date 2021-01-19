@@ -14,12 +14,12 @@ namespace DefaultApiClientServiceController.Interface
         /// <summary> Get count of entities in database </summary>
         /// <returns>int count</returns>
         public int GetTotalCount();
+        ///// <summary> Get all entities of T type from database </summary>
+        ///// <returns>IEnumerable Entities</returns>
+        //public Task<IQueryable<T>> GetAllAsync();
         /// <summary> Get all entities of T type from database </summary>
         /// <returns>IEnumerable Entities</returns>
-        public Task<IEnumerable<T>> GetAllAsync();
-        /// <summary> Get all entities of T type from database </summary>
-        /// <returns>IEnumerable Entities</returns>
-        public IEnumerable<T> GetAll();
+        public IQueryable<T> GetAll();
         /// <summary> Get entity of T type from database by id</summary>
         /// <returns>IEnumerable Entities</returns>
         public Task<T> GetAsync(T2 id);

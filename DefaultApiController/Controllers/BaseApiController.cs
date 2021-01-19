@@ -11,7 +11,7 @@ namespace DefaultApiClientServiceController.Controllers
     //[Route("api/[controller]")]
     //[ApiController]
     //[Produces("application/json")]
-    public abstract class BaseApiController<T, T2,T3> : ODataController where T : IBaseDataService<T2,T3> where T2 : BaseEntity<T3>
+    public abstract class BaseApiController<T, T2,T3> : ControllerBase where T : IBaseDataService<T2,T3> where T2 : BaseEntity<T3>
     {
         protected readonly T Service;
 
@@ -28,23 +28,19 @@ namespace DefaultApiClientServiceController.Controllers
         // GET: api/[controller]/All
         [HttpGet]
         [EnableQuery]
-        public virtual async Task<ActionResult<List<T2>>> GetAll()
-        {
-            var result = await Service.GetAllAsync();
-            return result.ToList();
-        }
+        public virtual IQueryable<T2> GetAll() => Service.GetAll();
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
         [EnableQuery]
-        public virtual async Task<ActionResult<T2>> Get(T3 id)
+        public virtual async Task<T2> Get(T3 id)
         {
             var data = await Service.GetAsync(id);
 
-            if (data == null)
-            {
-                return NotFound();
-            }
+            //if (data == null)
+            //{
+            //    return NotFound();
+            //}
 
             return data;
         }
@@ -71,7 +67,7 @@ namespace DefaultApiClientServiceController.Controllers
         // POST: api/[controller]/
         [HttpPost]
         [EnableQuery]
-        public virtual async Task<ActionResult<T2>> Post(T2 data)
+        public virtual async Task<T2> Post(T2 data)
         {
             var entity = await Service.AddNewAsync(data);
 
