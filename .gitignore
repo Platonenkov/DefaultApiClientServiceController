@@ -335,3 +335,5 @@ ASALocalRun/
 *.db
 
 # Don't ignore server launchSettings.json. We need a specific port number for auth to work.
+!**/ApiServer/Properties/launchSettings.json
+!**/BlazorTestApp/Properties/launchSettings.json
