@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -19,6 +20,7 @@ namespace DefaultApiClientServiceController.Client
         protected BaseClient(IConfiguration configuration, string ServiceAddress)
         {
             this.ServiceAddress = ServiceAddress;
+            Console.WriteLine($"Service address: {ServiceAddress}");
             _Client = new HttpClient
             {
                 BaseAddress = new Uri(configuration["ClientAddress"])
@@ -46,6 +48,8 @@ namespace DefaultApiClientServiceController.Client
 
         protected async Task<T> GetAsync<T>(string url) where T : new()
         {
+            Console.WriteLine($"url: {url}");
+
             var response = await _Client.GetAsync(url);
             if (response.IsSuccessStatusCode)
                 return await response.Content.ReadAsAsync<T>();

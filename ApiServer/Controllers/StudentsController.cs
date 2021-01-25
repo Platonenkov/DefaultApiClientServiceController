@@ -1,8 +1,8 @@
-﻿using ApiServer.Test.Service;
-using DefaultApiClientServiceController.Controllers;
+﻿using DefaultApiClientServiceController.Controllers;
 using Domain;
 using Infrastucture;
 using Microsoft.Extensions.Logging;
+using TestCommon.Service;
 
 namespace ApiServer.Controllers
 {

@@ -1,12 +1,11 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Domain;
-using Infrastucture;
 using Infrastucture.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace ApiServer.Test.Service
+namespace TestCommon.Service
 {
     public class TestContextInitializer
     {

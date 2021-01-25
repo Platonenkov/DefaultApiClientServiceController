@@ -19,6 +19,7 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIcon>icon.png</PackageIcon>
     <ApplicationIcon>D:\_MainData\DefaultApiClientServiceController\icon.ico</ApplicationIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,6 +38,10 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
 
   <ItemGroup>
     <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

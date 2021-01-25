@@ -25,6 +25,7 @@
     <ProjectReference Include="..\DefaultApiController\DefaultApiController.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastucture\Infrastucture.csproj" />
+    <ProjectReference Include="..\TestCommon\TestCommon.csproj" />
   </ItemGroup>
 
 </Project>

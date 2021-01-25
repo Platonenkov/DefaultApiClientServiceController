@@ -12,8 +12,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ApiServer.Test;
-using ApiServer.Test.Service;
 using DefaultApiClientService.Client;
 using Domain;
 using Infrastucture;
@@ -24,6 +22,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
 using Newtonsoft.Json;
+using TestCommon.Service;
 
 namespace ApiServer
 {
@@ -54,7 +53,14 @@ namespace ApiServer
                 o.UseLazyLoadingProxies();
                 o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-
+            services.AddCors(
+                o =>
+                {
+                    o.AddPolicy("CorsPolicy", policy =>
+                    {
+                        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    });
+                });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<HttpClient>();
@@ -77,6 +83,7 @@ namespace ApiServer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TestContextInitializer context)
         {
+            app.UseCors("CorsPolicy"); 
             context.InitializeAsync().Wait();
             if (env.IsDevelopment())
             {
