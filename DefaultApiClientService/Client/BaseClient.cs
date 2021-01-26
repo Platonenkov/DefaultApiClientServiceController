@@ -32,15 +32,15 @@ namespace DefaultApiClientServiceController.Client
 
         #region Odata
 
-        protected BaseApiResponse<T> GetOdata<T>(string url, int skip = 0, int top = 0) where T : new() => GetOdataAsync<T>(url, skip, top).Result;
+        //protected BaseApiResponse<T> GetOdata<T>(string url, int skip = 0, int top = 0) where T : new() => GetOdataAsync<T>(url, skip, top).Result;
 
-        protected async Task<BaseApiResponse<T>> GetOdataAsync<T>(string url, int skip = 0, int top = 0) where T : new()
-        {
-            var response = await _Client.GetAsync($"{url}?$count=true&$skip={skip}&$top={top}");
-            if (!response.IsSuccessStatusCode) return new BaseApiResponse<T>(){Values = new List<T>()};
-            var result = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BaseApiResponse<T>>(result);
-        }
+        //protected async Task<BaseApiResponse<T>> GetOdataAsync<T>(string url, int skip = 0, int top = 0) where T : new()
+        //{
+        //    var response = await _Client.GetAsync($"{url}?$count=true&$skip={skip}&$top={top}");
+        //    if (!response.IsSuccessStatusCode) return new BaseApiResponse<T>(){Values = new List<T>()};
+        //    var result = await response.Content.ReadAsStringAsync();
+        //    return JsonConvert.DeserializeObject<BaseApiResponse<T>>(result);
+        //}
 
         #endregion
 
@@ -51,9 +51,17 @@ namespace DefaultApiClientServiceController.Client
             Console.WriteLine($"url: {url}");
 
             var response = await _Client.GetAsync(url);
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode) return new T();
+            try
+            {
                 return await response.Content.ReadAsAsync<T>();
-            return new T();
+            }
+            catch (JsonSerializationException)
+            {
+                var row = await response.Content.ReadAsStringAsync();
+                var d = JsonConvert.DeserializeObject<BaseApiResponse<T>>(row);
+                return d.Value;
+            }
         }
 
         protected HttpResponseMessage Post<T>(string url, T item) => PostAsync(url, item).Result;

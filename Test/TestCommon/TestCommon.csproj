@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DefaultApiClientService\DefaultApiClientService.csproj" />
+    <ProjectReference Include="..\..\DefaultApiClientService\DefaultApiClientService.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastucture\Infrastucture.csproj" />
   </ItemGroup>

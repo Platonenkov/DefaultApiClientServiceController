@@ -7,17 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultApiClientService", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultApiController", "DefaultApiController\DefaultApiController.csproj", "{CE220088-F4B3-4A18-87A5-2F56265BA6F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiServer", "ApiServer\ApiServer.csproj", "{9B9554D6-C77E-4B69-AF6F-BC4CD35CABFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiServer", "Test\ApiServer\ApiServer.csproj", "{9B9554D6-C77E-4B69-AF6F-BC4CD35CABFE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CC4E31FB-7AA7-4C20-A632-CBFF5A814EE3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastucture", "Infrastucture\Infrastucture.csproj", "{80BA4E0A-9FC4-43BF-9B0B-2FD1BC97F376}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastucture", "Test\Infrastucture\Infrastucture.csproj", "{80BA4E0A-9FC4-43BF-9B0B-2FD1BC97F376}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{4C21B055-F540-4083-91A4-1120E85606E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Test\Domain\Domain.csproj", "{4C21B055-F540-4083-91A4-1120E85606E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorTestApp", "BlazorTestApp\BlazorTestApp.csproj", "{23C85ADA-62B5-4FC0-9D11-E13D03D15960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTestApp", "Test\BlazorTestApp\BlazorTestApp.csproj", "{23C85ADA-62B5-4FC0-9D11-E13D03D15960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCommon", "TestCommon\TestCommon.csproj", "{56DAC637-2611-4F73-96C7-00E5D395ABFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCommon", "Test\TestCommon\TestCommon.csproj", "{56DAC637-2611-4F73-96C7-00E5D395ABFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerWebApp.Server", "Test\BlazorServerWebApp\Server\BlazorServerWebApp.Server.csproj", "{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerWebApp.Client", "Test\BlazorServerWebApp\Client\BlazorServerWebApp.Client.csproj", "{3B95B4FB-7796-4645-A799-FE524ADB735E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,14 @@ Global
 		{56DAC637-2611-4F73-96C7-00E5D395ABFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56DAC637-2611-4F73-96C7-00E5D395ABFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56DAC637-2611-4F73-96C7-00E5D395ABFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B95B4FB-7796-4645-A799-FE524ADB735E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B95B4FB-7796-4645-A799-FE524ADB735E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B95B4FB-7796-4645-A799-FE524ADB735E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B95B4FB-7796-4645-A799-FE524ADB735E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +75,8 @@ Global
 		{4C21B055-F540-4083-91A4-1120E85606E6} = {CC4E31FB-7AA7-4C20-A632-CBFF5A814EE3}
 		{23C85ADA-62B5-4FC0-9D11-E13D03D15960} = {CC4E31FB-7AA7-4C20-A632-CBFF5A814EE3}
 		{56DAC637-2611-4F73-96C7-00E5D395ABFA} = {CC4E31FB-7AA7-4C20-A632-CBFF5A814EE3}
+		{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9} = {CC4E31FB-7AA7-4C20-A632-CBFF5A814EE3}
+		{3B95B4FB-7796-4645-A799-FE524ADB735E} = {CC4E31FB-7AA7-4C20-A632-CBFF5A814EE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1E2AAA0-C623-4837-A0BC-9EB0DF911473}

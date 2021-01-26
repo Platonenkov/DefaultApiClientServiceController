@@ -14,6 +14,6 @@ namespace DefaultApiClientService.Client
         public int Count { get; set; }
         /// <summary> values of entities in response </summary>
         [JsonProperty("value")]
-        public List<T> Values { get; set; }
+        public T Value { get; set; }
     }
 }

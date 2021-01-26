@@ -13,9 +13,9 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
     <Authors>APlatonenkov</Authors>
     <Company>APlatonenkov</Company>
     <Copyright>https://github.com/Platonenkov</Copyright>
-    <Version>5.0.2</Version>
-    <AssemblyVersion>5.0.2.0</AssemblyVersion>
-    <FileVersion>5.0.2.0</FileVersion>
+    <Version>5.0.2.2</Version>
+    <AssemblyVersion>5.0.2.2</AssemblyVersion>
+    <FileVersion>5.0.2.2</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIcon>icon.png</PackageIcon>
     <ApplicationIcon>D:\_MainData\DefaultApiClientServiceController\icon.ico</ApplicationIcon>
