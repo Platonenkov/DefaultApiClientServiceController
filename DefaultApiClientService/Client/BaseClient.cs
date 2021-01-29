@@ -20,7 +20,6 @@ namespace DefaultApiClientServiceController.Client
         protected BaseClient(IConfiguration configuration, string ServiceAddress)
         {
             this.ServiceAddress = ServiceAddress;
-            Console.WriteLine($"Service address: {ServiceAddress}");
             _Client = new HttpClient
             {
                 BaseAddress = new Uri(configuration["ClientAddress"])
@@ -30,26 +29,11 @@ namespace DefaultApiClientServiceController.Client
             _Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        #region Odata
-
-        //protected BaseApiResponse<T> GetOdata<T>(string url, int skip = 0, int top = 0) where T : new() => GetOdataAsync<T>(url, skip, top).Result;
-
-        //protected async Task<BaseApiResponse<T>> GetOdataAsync<T>(string url, int skip = 0, int top = 0) where T : new()
-        //{
-        //    var response = await _Client.GetAsync($"{url}?$count=true&$skip={skip}&$top={top}");
-        //    if (!response.IsSuccessStatusCode) return new BaseApiResponse<T>(){Values = new List<T>()};
-        //    var result = await response.Content.ReadAsStringAsync();
-        //    return JsonConvert.DeserializeObject<BaseApiResponse<T>>(result);
-        //}
-
-        #endregion
 
         protected T Get<T>(string url) where T : new() => GetAsync<T>(url).Result;
 
         protected async Task<T> GetAsync<T>(string url) where T : new()
         {
-            Console.WriteLine($"url: {url}");
-
             var response = await _Client.GetAsync(url);
             if (!response.IsSuccessStatusCode) return new T();
             try

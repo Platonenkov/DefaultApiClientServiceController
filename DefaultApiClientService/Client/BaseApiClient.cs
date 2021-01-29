@@ -23,19 +23,6 @@ namespace DefaultApiClientServiceController.Client
         {
         }
 
-        public async Task<BaseApiResponse<T>> GetAsync(int skip = 0, int top = 0)
-        {
-            var response = _Client.GetAsync($"{ServiceAddress}?$count=true&$skip={skip}&$top={top}").Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<BaseApiResponse<T>>(json);
-            }
-
-            return new BaseApiResponse<T>();
-        }
-
         #region Implementation of IBaseDataService
 
         /// <summary> Get count of entities in database </summary>

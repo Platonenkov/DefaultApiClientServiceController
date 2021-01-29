@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
 using Newtonsoft.Json;
+using TestCommon;
 using TestCommon.Service;
 
 namespace ApiServer
@@ -70,6 +71,7 @@ namespace ApiServer
 
 
             services.AddOData();
+            services.AddODataQueryFilter();
             services.AddMvc().AddNewtonsoftJson(opt =>
                 {
                     opt.SerializerSettings.Formatting = Formatting.Indented;

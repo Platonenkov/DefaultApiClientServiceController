@@ -25,6 +25,7 @@ namespace BlazorServerWebApp.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IStudentService, StudentsClient>();
+            services.AddSingleton<OdataClient>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

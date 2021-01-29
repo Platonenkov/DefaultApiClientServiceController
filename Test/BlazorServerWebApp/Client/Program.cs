@@ -22,6 +22,7 @@ namespace BlazorServerWebApp.Client
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddScoped<IStudentService, StudentsClient>();
+            builder.Services.AddScoped<OdataClient>();
 
             var config = new Dictionary<string, string> { { "ClientAddress", "https://localhost:44369" } };
             builder.Configuration.Add(new MemoryConfigurationSource { InitialData = config });

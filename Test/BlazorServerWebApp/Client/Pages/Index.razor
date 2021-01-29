@@ -43,5 +43,17 @@ else
         StateHasChanged();
     }
 
-
+    
+    async void TestOData()
+    {
+@*        var accessToken = HttpContext.GetTokenAsync("access_token").Result;
+*@       
+@*        var client = new ODataClient(SetODataToken("https://localhost:44345/api", accessToken));
+ 
+        var persons = await client.For<Student>()
+            .Expand(rr => rr.EmailAddress)
+            .Top(7).Skip(7)
+            .FindEntriesAsync();
+*@ 
+    }
 }

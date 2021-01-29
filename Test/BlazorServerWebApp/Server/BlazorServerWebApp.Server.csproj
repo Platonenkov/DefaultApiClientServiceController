@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.2" />
+    <PackageReference Include="Simple.OData.Client" Version="5.17.0" />
   </ItemGroup>
 
   <ItemGroup>

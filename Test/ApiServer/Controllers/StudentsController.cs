@@ -1,6 +1,10 @@
 ﻿using DefaultApiClientServiceController.Controllers;
 using Domain;
 using Infrastucture;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
+using Microsoft.AspNet.OData.Routing;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TestCommon.Service;
 
@@ -14,6 +18,5 @@ namespace ApiServer.Controllers
         {
             _logger = logger;
         }
-
     }
 }
