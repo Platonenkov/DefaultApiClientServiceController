@@ -3,10 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using DefaultApiClientServiceController.Entity;
 using DefaultApiClientServiceController.Interface;
-using Microsoft.AspNet.OData;
-using Microsoft.AspNet.OData.Query;
-using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 
 namespace DefaultApiClientServiceController.Controllers
 {
