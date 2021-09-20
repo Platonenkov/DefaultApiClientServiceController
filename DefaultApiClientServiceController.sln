@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTestApp", "Test\Blazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCommon", "Test\TestCommon\TestCommon.csproj", "{56DAC637-2611-4F73-96C7-00E5D395ABFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerWebApp.Server", "Test\BlazorServerWebApp\Server\BlazorServerWebApp.Server.csproj", "{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerWebApp.Server", "Test\BlazorServerWebApp\Server\BlazorServerWebApp.Server.csproj", "{FDE753CD-DCB5-4A0E-BB6F-F4062D8975E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerWebApp.Client", "Test\BlazorServerWebApp\Client\BlazorServerWebApp.Client.csproj", "{3B95B4FB-7796-4645-A799-FE524ADB735E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerWebApp.Client", "Test\BlazorServerWebApp\Client\BlazorServerWebApp.Client.csproj", "{3B95B4FB-7796-4645-A799-FE524ADB735E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

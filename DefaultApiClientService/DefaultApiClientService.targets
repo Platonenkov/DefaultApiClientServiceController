@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    
+    <None Include="$(MSBuildThisFileDirectory)..\$(MSBuildThisFileName).xml">
+      <!--(MSBuildThisFileDirectory) - указывает начать поиск из директории где файл target
+      Поэтому сначала после нее стоит ..\, чтобы вернуться выше
+      далее полный путь к файлу-->
+      
+      <Link>$(MSBuildThisFileName).xml</Link>
+      <!--тут повторяем путь к файлу-->
+      
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

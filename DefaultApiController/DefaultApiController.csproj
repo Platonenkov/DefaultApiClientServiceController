@@ -46,15 +46,28 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Update="$(MSBuildProjectName).xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildProjectName).targets">
+      <PackagePath>build\</PackagePath>
+      <!--у меня без указания каталога файлы потом не копируются, хз может где пути какие-->
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="$(MSBuildProjectName).xml">
+      <!--Полный путь к файлу, включая все каталоги и расширение-->
+      <PackagePath></PackagePath>
+      <!--Полный путь к директории где файл-->
+      <Pack>True</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
