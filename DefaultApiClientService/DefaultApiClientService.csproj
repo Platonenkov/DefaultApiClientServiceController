@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>https://github.com/Platonenkov</Copyright>
     <PackageProjectUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</PackageProjectUrl>
@@ -16,6 +16,8 @@ look DefaultApiController to use Controller implementation</Description>
     <Version>1.0.0.4</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Platonenkov</Authors>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>DefaultApiController.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
@@ -27,10 +29,6 @@ look DefaultApiController to use Controller implementation</Description>
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Include="..\icon.ico">
-	    <Pack>True</Pack>
-	    <PackagePath></PackagePath>
-	  </None>
 	  <None Include="..\icon.png">
 	    <Pack>True</Pack>
 	    <PackagePath></PackagePath>
