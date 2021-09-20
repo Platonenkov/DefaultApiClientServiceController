@@ -16,14 +16,14 @@ using DefaultApiClientService.Client;
 using Domain;
 using Infrastucture;
 using Infrastucture.Context;
-using Microsoft.AspNet.OData.Builder;
-using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
 using Newtonsoft.Json;
 using TestCommon;
 using TestCommon.Service;
+using Microsoft.AspNetCore.OData;
+using Microsoft.OData.ModelBuilder;
 
 namespace ApiServer
 {
@@ -39,8 +39,8 @@ namespace ApiServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
+            services.AddControllers().AddOData(opt => opt.AddRouteComponents("api", GetEdmModel())
+               .Expand().Select().Count().Filter().OrderBy().SkipToken().SetMaxTop(null));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiServer", Version = "v1" });
@@ -69,9 +69,6 @@ namespace ApiServer
             services.AddScoped<IStudentService, StudentService>();
             services.AddSingleton<BaseApiResponse<Student>>();
 
-
-            services.AddOData();
-            services.AddODataQueryFilter();
             services.AddMvc().AddNewtonsoftJson(opt =>
                 {
                     opt.SerializerSettings.Formatting = Formatting.Indented;
@@ -102,13 +99,6 @@ namespace ApiServer
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapODataRoute(
-                    routeName: "api",
-                    routePrefix: "api",
-                    model: GetEdmModel());
-
-                endpoints.EnableDependencyInjection();
-                endpoints.Expand().Select().Count().Filter().OrderBy().SkipToken().MaxTop(null);
                 endpoints.MapControllers();
             });
         }

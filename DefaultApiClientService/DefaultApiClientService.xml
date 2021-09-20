@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DefaultApiClientService</name>
+    </assembly>
+    <members>
+        <member name="T:DefaultApiClientServiceController.Client.BaseApiClient`2">
+            <summary>
+            Base service client
+            </summary>
+            <typeparam name="T">Entity type</typeparam>
+            <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.GetTotalCountAsync">
+            <summary> Get count of entities in database </summary>
+            <returns>int count</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.GetTotalCount">
+            <summary> Get count of entities in database </summary>
+            <returns>int count</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.GetAllAsync">
+            <summary> Get all entities of T type from database </summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.GetAll">
+            <summary> Get all entities of T type from database </summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.GetAsync(`1)">
+            <summary> Get entity of T type from database by id</summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.Get(`1)">
+            <summary> Get entity of T type from database by id</summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.AddNewAsync(`0)">
+            <summary> Add new entity to database </summary>
+            <param name="data">entity</param>
+            <returns>database entity with id</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.AddNew(`0)">
+            <summary> Add new entity to database </summary>
+            <param name="data">entity</param>
+            <returns>database entity with id</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.DeleteAsync(`1)">
+            <summary> Delete entity from database </summary>
+            <param name="id">entity id</param>
+            <returns>database entity which was deleted</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.Delete(`1)">
+            <summary> Delete entity from database </summary>
+            <param name="id">entity id</param>
+            <returns>database entity which was deleted</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.UpdateAsync(`1,`0)">
+            <summary> Update entity data in database </summary>
+            <param name="id">entity id</param>
+            <param name="data">entity data</param>
+            <returns>entity after update</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.Update(`1,`0)">
+            <summary> Update entity data in database </summary>
+            <param name="id">entity id</param>
+            <param name="data">entity data</param>
+            <returns>entity after update</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.ExistsAsync(`1)">
+            <summary> Check database to exist entity </summary>
+            <param name="id">entity id</param>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.Exists(`1)">
+            <summary> Check database to exist entity </summary>
+            <param name="id">entity id</param>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.SaveChangesAsync">
+            <summary> Save database changes if u need </summary>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.SaveChanges">
+            <summary> Save database changes if u need </summary>
+            <returns>bool result</returns>
+        </member>
+        <member name="T:DefaultApiClientServiceController.Entity.BaseEntity`1">
+            <summary>
+            base entity
+            </summary>
+            <typeparam name="T">type of Id (int, long, Guid)</typeparam>
+        </member>
+        <member name="P:DefaultApiClientServiceController.Entity.BaseEntity`1.ID">
+            <summary> Id of base entity on database </summary>
+        </member>
+        <member name="T:DefaultApiClientServiceController.Entity.IBaseEntity`1">
+            <summary>
+            base entity interface
+            </summary>
+            <typeparam name="T">type of Id (int, long, Guid)</typeparam>
+        </member>
+        <member name="P:DefaultApiClientServiceController.Entity.IBaseEntity`1.ID">
+            <summary> FOREIGN KEY </summary>
+        </member>
+        <member name="T:DefaultApiClientServiceController.Interface.IBaseDataService`2">
+            <summary>
+            Base service interface
+            </summary>
+            <typeparam name="T">Entity type</typeparam>
+            <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.GetTotalCountAsync">
+            <summary> Get count of entities in database </summary>
+            <returns>int count</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.GetTotalCount">
+            <summary> Get count of entities in database </summary>
+            <returns>int count</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.GetAllAsync">
+            <summary> Get all entities of T type from database </summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.GetAll">
+            <summary> Get all entities of T type from database </summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.GetAsync(`1)">
+            <summary> Get entity of T type from database by id</summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.Get(`1)">
+            <summary> Get entity of T type from database by id</summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.AddNewAsync(`0)">
+            <summary> Add new entity to database </summary>
+            <param name="data">entity</param>
+            <returns>database entity with id</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.AddNew(`0)">
+            <summary> Add new entity to database </summary>
+            <param name="data">entity</param>
+            <returns>database entity with id</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.DeleteAsync(`1)">
+            <summary> Delete entity from database </summary>
+            <param name="id">entity id</param>
+            <returns>database entity which was deleted</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.Delete(`1)">
+            <summary> Delete entity from database </summary>
+            <param name="id">entity id</param>
+            <returns>database entity which was deleted</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.UpdateAsync(`1,`0)">
+            <summary> Update entity data in database </summary>
+            <param name="id">entity id</param>
+            <param name="data">entity data</param>
+            <returns>entity after update</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.Update(`1,`0)">
+            <summary> Update entity data in database </summary>
+            <param name="id">entity id</param>
+            <param name="data">entity data</param>
+            <returns>entity after update</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.ExistsAsync(`1)">
+            <summary> Check database to exist entity </summary>
+            <param name="id">entity id</param>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.Exists(`1)">
+            <summary> Check database to exist entity </summary>
+            <param name="id">entity id</param>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.SaveChangesAsync">
+            <summary> Save database changes if u need </summary>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Interface.IBaseDataService`2.SaveChanges">
+            <summary> Save database changes if u need </summary>
+            <returns>bool result</returns>
+        </member>
+        <member name="T:DefaultApiClientServiceController.Service.BaseDataService`2">
+            <summary>
+            Base service realization
+            </summary>
+            <typeparam name="T">Entity type</typeparam>
+            <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.GetTotalCountAsync">
+            <summary> Get count of entities in database </summary>
+            <returns>int count</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.GetTotalCount">
+            <summary> Get count of entities in database </summary>
+            <returns>int count</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.GetAllAsync">
+            <summary> Get all entities of T type from database </summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.GetAll">
+            <summary> Get all entities of T type from database </summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.GetAsync(`1)">
+            <summary> Get entity of T type from database by id</summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.Get(`1)">
+            <summary> Get entity of T type from database by id</summary>
+            <returns>IEnumerable Entities</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.AddNewAsync(`0)">
+            <summary> Add new entity to database </summary>
+            <param name="data">entity</param>
+            <returns>database entity with id</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.AddNew(`0)">
+            <summary> Add new entity to database </summary>
+            <param name="data">entity</param>
+            <returns>database entity with id</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.DeleteAsync(`1)">
+            <summary> Delete entity from database </summary>
+            <param name="id">entity id</param>
+            <returns>database entity which was deleted</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.Delete(`1)">
+            <summary> Delete entity from database </summary>
+            <param name="id">entity id</param>
+            <returns>database entity which was deleted</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.UpdateAsync(`1,`0)">
+            <summary> Update entity data in database </summary>
+            <param name="id">entity id</param>
+            <param name="data">entity data</param>
+            <returns>entity after update</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.Update(`1,`0)">
+            <summary> Update entity data in database </summary>
+            <param name="id">entity id</param>
+            <param name="data">entity data</param>
+            <returns>entity after update</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.ExistsAsync(`1)">
+            <summary> Check database to exist entity </summary>
+            <param name="id">entity id</param>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.Exists(`1)">
+            <summary> Check database to exist entity </summary>
+            <param name="id">entity id</param>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.SaveChangesAsync">
+            <summary> Save database changes if u need </summary>
+            <returns>bool result</returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.SaveChanges">
+            <summary> Save database changes if u need </summary>
+            <returns>bool result</returns>
+        </member>
+        <member name="P:DefaultApiClientService.Client.BaseApiResponse`1.Count">
+            <summary> count of entities in response </summary>
+        </member>
+        <member name="P:DefaultApiClientService.Client.BaseApiResponse`1.Value">
+            <summary> values of entities in response </summary>
+        </member>
+    </members>
+</doc>

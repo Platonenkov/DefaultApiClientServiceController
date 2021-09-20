@@ -13,13 +13,14 @@
     <Description>this contains default Api realization for Api Client, Api Service
 because net5 client does not support library reference Microsoft.AspNetCore.Mvc.Core decided to split implementations in library
 look DefaultApiController to use Controller implementation</Description>
-    <Version>1.0.0.3</Version>
+    <Version>1.0.0.4</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Authors>Platonenkov</Authors>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -39,5 +40,15 @@ look DefaultApiController to use Controller implementation</Description>
 	    <PackagePath></PackagePath>
 	  </None>
 	</ItemGroup>
-
+	<ItemGroup>
+	  <None Update="$(MSBuildProjectName).xml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
 </Project>

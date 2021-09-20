@@ -10,12 +10,10 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
     <RepositoryUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</RepositoryUrl>
     <PackageTags>Api, Client, Service, Controller, base, default</PackageTags>
     <PackageReleaseNotes>odata support</PackageReleaseNotes>
-    <Authors>APlatonenkov</Authors>
-    <Company>APlatonenkov</Company>
+    <Authors>Platonenkov</Authors>
+    <Company>Platonenkov</Company>
     <Copyright>https://github.com/Platonenkov</Copyright>
-    <Version>5.0.2.2</Version>
-    <AssemblyVersion>5.0.2.2</AssemblyVersion>
-    <FileVersion>5.0.2.2</FileVersion>
+    <Version>5.0.2.3</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIcon>icon.png</PackageIcon>
     <ApplicationIcon>D:\_MainData\DefaultApiClientServiceController\icon.ico</ApplicationIcon>
@@ -25,11 +23,11 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.5.4" />
-    <PackageReference Include="Microsoft.OData.Core" Version="7.8.1" />
-    <PackageReference Include="Microsoft.OData.Edm" Version="7.8.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.2" />
+    <PackageReference Include="Microsoft.OData.Core" Version="7.9.2" />
+    <PackageReference Include="Microsoft.OData.Edm" Version="7.9.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,5 +44,15 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update="$(MSBuildProjectName).xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
 </Project>
