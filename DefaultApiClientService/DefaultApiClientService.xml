@@ -11,6 +11,13 @@
             <typeparam name="T">Entity type</typeparam>
             <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
         </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.#ctor(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Базовый конструктор
+            </summary>
+            <param name="configuration">Конфигурация</param>
+            <param name="ServiceAddress">адрес сервиса</param>
+        </member>
         <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.GetTotalCountAsync">
             <summary> Get count of entities in database </summary>
             <returns>int count</returns>
@@ -84,6 +91,85 @@
         <member name="M:DefaultApiClientServiceController.Client.BaseApiClient`2.SaveChanges">
             <summary> Save database changes if u need </summary>
             <returns>bool result</returns>
+        </member>
+        <member name="T:DefaultApiClientServiceController.Client.BaseClient">
+            <summary>
+            Базовый клиент с реализациями
+            </summary>
+        </member>
+        <member name="F:DefaultApiClientServiceController.Client.BaseClient._Client">
+            <summary>
+            Http клиент
+            </summary>
+        </member>
+        <member name="P:DefaultApiClientServiceController.Client.BaseClient.ServiceAddress">
+            <summary>
+            адрес сервиса
+            </summary>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.#ctor(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Базовый конструктор
+            </summary>
+            <param name="configuration">конфигурация</param>
+            <param name="ServiceAddress">адрес сервиса</param>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.Get``1(System.String)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <typeparam name="T">Тип нужных данных</typeparam>
+            <param name="url">адрес</param>
+            <returns></returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.GetAsync``1(System.String)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <typeparam name="T">Тип нужных данных</typeparam>
+            <param name="url">адрес</param>
+            <returns></returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.Post``1(System.String,``0)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <typeparam name="T">Тип нужных данных</typeparam>
+            <param name="url">адрес</param>
+            <param name="item">данные</param>
+            <returns></returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.PostAsync``1(System.String,``0)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <typeparam name="T">Тип нужных данных</typeparam>
+            <param name="url">адрес</param>
+            <param name="item">данные</param>
+            <returns></returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.Put``1(System.String,``0)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <typeparam name="T">Тип нужных данных</typeparam>
+            <param name="url">адрес</param>
+            <param name="item">данные</param>
+            <returns></returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.Delete(System.String)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <param name="url">адрес</param>
+            <returns></returns>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Client.BaseClient.DeleteAsync(System.String)">
+            <summary>
+            Базовая реализация метода
+            </summary>
+            <param name="url">адрес</param>
+            <returns></returns>
         </member>
         <member name="T:DefaultApiClientServiceController.Entity.BaseEntity`1">
             <summary>
@@ -191,6 +277,17 @@
             <typeparam name="T">Entity type</typeparam>
             <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
         </member>
+        <member name="F:DefaultApiClientServiceController.Service.BaseDataService`2.db">
+            <summary>
+            Контекст базы данных
+            </summary>
+        </member>
+        <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Базовый конструктор
+            </summary>
+            <param name="db">контекст базы данных</param>
+        </member>
         <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.GetTotalCountAsync">
             <summary> Get count of entities in database </summary>
             <returns>int count</returns>
@@ -264,6 +361,12 @@
         <member name="M:DefaultApiClientServiceController.Service.BaseDataService`2.SaveChanges">
             <summary> Save database changes if u need </summary>
             <returns>bool result</returns>
+        </member>
+        <member name="T:DefaultApiClientService.Client.BaseApiResponse`1">
+            <summary>
+            Базовый ответ сервиса
+            </summary>
+            <typeparam name="T">тип данных в ответе</typeparam>
         </member>
         <member name="P:DefaultApiClientService.Client.BaseApiResponse`1.Count">
             <summary> count of entities in response </summary>

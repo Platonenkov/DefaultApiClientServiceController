@@ -12,11 +12,24 @@ using Newtonsoft.Json;
 
 namespace DefaultApiClientServiceController.Client
 {
+    /// <summary>
+    /// Базовый клиент с реализациями
+    /// </summary>
     public abstract class BaseClient
     {
+        /// <summary>
+        /// Http клиент
+        /// </summary>
         protected readonly HttpClient _Client;
+        /// <summary>
+        /// адрес сервиса
+        /// </summary>
         protected string ServiceAddress { get; }
-
+        /// <summary>
+        /// Базовый конструктор
+        /// </summary>
+        /// <param name="configuration">конфигурация</param>
+        /// <param name="ServiceAddress">адрес сервиса</param>
         protected BaseClient(IConfiguration configuration, string ServiceAddress)
         {
             this.ServiceAddress = ServiceAddress;
@@ -29,9 +42,19 @@ namespace DefaultApiClientServiceController.Client
             _Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <typeparam name="T">Тип нужных данных</typeparam>
+        /// <param name="url">адрес</param>
+        /// <returns></returns>
         protected T Get<T>(string url) where T : new() => GetAsync<T>(url).Result;
-
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <typeparam name="T">Тип нужных данных</typeparam>
+        /// <param name="url">адрес</param>
+        /// <returns></returns>
         protected async Task<T> GetAsync<T>(string url) where T : new()
         {
             var response = await _Client.GetAsync(url);
@@ -48,13 +71,34 @@ namespace DefaultApiClientServiceController.Client
             }
         }
 
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <typeparam name="T">Тип нужных данных</typeparam>
+        /// <param name="url">адрес</param>
+        /// <param name="item">данные</param>
+        /// <returns></returns>
         protected HttpResponseMessage Post<T>(string url, T item) => PostAsync(url, item).Result;
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <typeparam name="T">Тип нужных данных</typeparam>
+        /// <param name="url">адрес</param>
+        /// <param name="item">данные</param>
+        /// <returns></returns>
         protected async Task<HttpResponseMessage> PostAsync<T>(string url, T item)
         {
             var response = await _Client.PostAsJsonAsync(url, item);
             return response.EnsureSuccessStatusCode();
         }
 
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <typeparam name="T">Тип нужных данных</typeparam>
+        /// <param name="url">адрес</param>
+        /// <param name="item">данные</param>
+        /// <returns></returns>
         protected HttpResponseMessage Put<T>(string url, T item) => PutAsync(url, item).Result;
         protected async Task<HttpResponseMessage> PutAsync<T>(string url, T item)
         {
@@ -62,7 +106,17 @@ namespace DefaultApiClientServiceController.Client
             return response.EnsureSuccessStatusCode();
         }
 
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <param name="url">адрес</param>
+        /// <returns></returns>
         protected HttpResponseMessage Delete(string url) => DeleteAsync(url).Result;
+        /// <summary>
+        /// Базовая реализация метода
+        /// </summary>
+        /// <param name="url">адрес</param>
+        /// <returns></returns>
         protected async Task<HttpResponseMessage> DeleteAsync(string url) => await _Client.DeleteAsync(url);
 
     }

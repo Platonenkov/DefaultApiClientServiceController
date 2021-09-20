@@ -16,8 +16,14 @@ namespace DefaultApiClientServiceController.Service
     /// <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
     public abstract class BaseDataService<T, T2> : IBaseDataService<T, T2> where T : BaseEntity<T2>
     {
+        /// <summary>
+        /// Контекст базы данных
+        /// </summary>
         protected readonly DbContext db;
-
+        /// <summary>
+        /// Базовый конструктор
+        /// </summary>
+        /// <param name="db">контекст базы данных</param>
         protected BaseDataService(DbContext db) { this.db = db; }
 
         #region Implementation of IBaseDataService<T>

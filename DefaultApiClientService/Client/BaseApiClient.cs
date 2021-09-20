@@ -19,6 +19,11 @@ namespace DefaultApiClientServiceController.Client
     /// <typeparam name="T2">Entity Id - type (int, long, Guid)</typeparam>
     public abstract class BaseApiClient<T,T2> : BaseClient, IBaseDataService<T,T2> where T : BaseEntity<T2>, new()
     {
+        /// <summary>
+        /// Базовый конструктор
+        /// </summary>
+        /// <param name="configuration">Конфигурация</param>
+        /// <param name="ServiceAddress">адрес сервиса</param>
         protected BaseApiClient(IConfiguration configuration, string ServiceAddress) : base(configuration, ServiceAddress)
         {
         }
