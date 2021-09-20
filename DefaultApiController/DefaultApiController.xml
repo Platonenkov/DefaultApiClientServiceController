@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DefaultApiController</name>
+    </assembly>
+    <members>
+        <member name="T:DefaultApiClientServiceController.Controllers.BaseApiController`3">
+            <summary>
+            Base controller implementation
+            </summary>
+            <typeparam name="T">Service that will work with DB</typeparam>
+            <typeparam name="T2">Entity type</typeparam>
+            <typeparam name="T3">Entity Id - type (int, long, Guid)</typeparam>
+        </member>
+    </members>
+</doc>

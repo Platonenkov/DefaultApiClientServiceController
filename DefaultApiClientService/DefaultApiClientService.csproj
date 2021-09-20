@@ -13,7 +13,7 @@
     <Description>this contains default Api realization for Api Client, Api Service
 because net5 client does not support library reference Microsoft.AspNetCore.Mvc.Core decided to split implementations in library
 look DefaultApiController to use Controller implementation</Description>
-    <Version>1.0.0.3</Version>
+    <Version>1.0.0.4</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 	<ItemGroup>
