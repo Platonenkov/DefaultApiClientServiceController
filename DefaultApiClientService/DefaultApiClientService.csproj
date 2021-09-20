@@ -15,6 +15,7 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
 look DefaultApiController to use Controller implementation</Description>
     <Version>1.0.0.4</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Authors>Platonenkov</Authors>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />

@@ -10,8 +10,8 @@ because net5 client does not support library reference Microsoft.AspNetCore.Mvc.
     <RepositoryUrl>https://github.com/Platonenkov/DefaultApiClientServiceController</RepositoryUrl>
     <PackageTags>Api, Client, Service, Controller, base, default</PackageTags>
     <PackageReleaseNotes>odata support</PackageReleaseNotes>
-    <Authors>APlatonenkov</Authors>
-    <Company>APlatonenkov</Company>
+    <Authors>Platonenkov</Authors>
+    <Company>Platonenkov</Company>
     <Copyright>https://github.com/Platonenkov</Copyright>
     <Version>5.0.2.3</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
