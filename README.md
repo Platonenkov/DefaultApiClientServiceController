@@ -5,6 +5,9 @@
 this contains default Api realization for EF Interface, EF Service, Api Client, Api Controller 
 
 ### Known issues
+
+## [Swagger conflict](https://github.com/Platonenkov/DefaultApiClientServiceController/blob/dev/SwaggerConflict.md)
+
 because net5 client does not support library reference Microsoft.AspNetCore.Mvc.Core decided to split implementations in library
 base package: Install-Package DefaultApiClientServiceConrtoller -Version 5.0.0
 

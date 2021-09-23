@@ -26,8 +26,8 @@ jobs:
     - name: Test
       run: dotnet test 
       
-    - name: Packing
-      run: dotnet pack  -c Release 
+   # - name: Packing
+     # run: dotnet pack  -c Release 
       
     - name: Publish GitHub
       run: dotnet nuget push "**/*.nupkg" --skip-duplicate --source https://nuget.pkg.github.com/Platonenkov/index.json -k ${{secrets.GITHUB_TOKEN}}       
